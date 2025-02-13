@@ -94,8 +94,11 @@
   services.openssh.enable = true;
   services.ollama = {
     enable = true;
-    acceleration = "rocm"; # does not work on intel :( we need nvidia for cuda
-    loadModels = [ "mistral" ];
+    acceleration = "rocm"; # does not work on intel :( we need nvidia for cuda or at least amd
+    loadModels = [
+      "deepseek-r1:7b"
+      "mistral:7b"
+    ];
   };
   services.open-webui.enable = true;
   services.rss-bridge = {
