@@ -1,7 +1,6 @@
 {
   inputs,
   config,
-  pkgs,
   ...
 }:
 
@@ -103,7 +102,6 @@
   };
   services.open-webui = {
     enable = true;
-    package = pkgs.unstable.open-webui;
   };
   services.rss-bridge = {
     enable = true;
