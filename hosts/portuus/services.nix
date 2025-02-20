@@ -1,6 +1,7 @@
 {
   inputs,
   config,
+  pkgs,
   ...
 }:
 
@@ -100,7 +101,10 @@
       "mistral:7b"
     ];
   };
-  services.open-webui.enable = true;
+  services.open-webui = {
+    enable = true;
+    package = pkgs.unstable.open-webui;
+  };
   services.rss-bridge = {
     enable = true;
     dataDir = "/data/rss-bridge";
