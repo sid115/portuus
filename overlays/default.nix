@@ -8,7 +8,12 @@
   local-packages = final: prev: { local = import ../pkgs { pkgs = final; }; };
 
   # https://nixos.wiki/wiki/Overlays
-  modifications = final: prev: { } // inputs.core.overlays.modifications final prev;
+  modifications =
+    final: prev:
+    {
+      rss-bridge = inputs.nixpkgs-unstable.legacyPackages.x86_64-linux.rss-bridge;
+    }
+    // inputs.core.overlays.modifications final prev;
 
   # unstable nixpkgs accessible through 'pkgs.unstable'
   unstable-packages = final: prev: {
