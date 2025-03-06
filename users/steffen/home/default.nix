@@ -13,7 +13,7 @@
   programs.git = {
     enable = true;
     userName = "steffen";
-    userEmail = "steffen@portuus.de";
+    userEmail = "steffen_hermann97@yahoo.de";
   };
 
   programs.nixvim.enable = true;
