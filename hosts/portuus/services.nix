@@ -91,8 +91,10 @@ in
         bookmarks
         calendar
         contacts
-        mail
+        onlyoffice
+        polls
         tasks
+        whiteboard
         ;
     };
   };
