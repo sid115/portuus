@@ -99,6 +99,13 @@ in
     };
   };
 
+  services.onlyoffice = {
+    enable = true;
+    hostname = "localhost";
+    port = 8080;
+  };
+
+
   services.vaultwarden = {
     enable = true;
     subdomain = "vault";
