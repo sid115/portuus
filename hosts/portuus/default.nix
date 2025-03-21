@@ -9,6 +9,7 @@
     ./packages.nix
     ./services.nix
     ./users.nix
+    ./vde.nix
 
     inputs.core.nixosModules.common
     inputs.core.nixosModules.sops

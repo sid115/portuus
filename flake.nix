@@ -20,6 +20,8 @@
 
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
+
+    toggle-web-app.url = "github:sid115/toggle-web-app";
   };
 
   outputs =
