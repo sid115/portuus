@@ -99,12 +99,15 @@ in
     };
   };
 
+  # TODO: Turn into module
   services.onlyoffice = {
     enable = true;
-    hostname = "localhost";
-    port = 8080;
+    hostname = "office.${domain}";
   };
-
+  services.nginx.virtualHosts."${config.services.onlyoffice.hostname}" = {
+    forceSSL = true;
+    enableACME = true;
+  };
 
   services.vaultwarden = {
     enable = true;
