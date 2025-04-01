@@ -25,15 +25,16 @@
         "pre-commit-hooks": "pre-commit-hooks"
       },
       "locked": {
-        "lastModified": 1742410070,
-        "narHash": "sha256-Q0TvH1Z6ADu/T6Owm+Rlr3hc9KtA/JovoL1Zta97UA8=",
+        "lastModified": 1743503811,
+        "narHash": "sha256-oBjfnP/6lPhqtJU409t92VexX1vJj5xYQrLLeYs9E5w=",
         "owner": "sid115",
         "repo": "nix-core",
-        "rev": "a37321a1093e4d9a3accca73ef89746b98577410",
+        "rev": "bb39c013d9e166e70e4cd5de8356b9fb4cf45bde",
         "type": "github"
       },
       "original": {
         "owner": "sid115",
+        "ref": "develop",
         "repo": "nix-core",
         "type": "github"
       }
@@ -705,11 +706,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1743494586,
-        "narHash": "sha256-Rx3/NJnsl8k7N7Ggd7fuHvJkgsee/U19VgtzSGF5k0w=",
+        "lastModified": 1743502316,
+        "narHash": "sha256-zI2WSkU+ei4zCxT+IVSQjNM9i0ST++T2qSFXTsAND7s=",
         "owner": "Mic92",
         "repo": "sops-nix",
-        "rev": "49cffb88f6362d14aa893a6b8326692cff48b962",
+        "rev": "e7f4d7ed8bce8dfa7d2f2fe6f8b8f523e54646f8",
         "type": "github"
       },
       "original": {

@@ -133,25 +133,27 @@ zfs create -o canmount=noauto -o mountpoint=legacy dpool/data
 mount -o X-mount.mkdir -t zfs dpool/data "$MNT"/data
 
 # Create data sets
+zfs create -o mountpoint=legacy dpool/data/firefly-iii
+zfs create -o mountpoint=legacy dpool/data/gitea
+zfs create -o mountpoint=legacy dpool/data/grafana
 zfs create -o mountpoint=legacy dpool/data/jellyfin
 zfs create -o mountpoint=legacy dpool/data/jirafeau
 zfs create -o mountpoint=legacy dpool/data/matrix-synapse
 zfs create -o mountpoint=legacy dpool/data/nextcloud
-zfs create -o mountpoint=legacy dpool/data/syncthing
-zfs create -o mountpoint=legacy dpool/data/gitea
 zfs create -o mountpoint=legacy dpool/data/peertube
-zfs create -o mountpoint=legacy dpool/data/tt-rss
 zfs create -o mountpoint=legacy dpool/data/rss-bridge
-zfs create -o mountpoint=legacy dpool/data/firefly-iii
+zfs create -o mountpoint=legacy dpool/data/syncthing
+zfs create -o mountpoint=legacy dpool/data/tt-rss
 
 # Mount datasets
+mount -o X-mount.mkdir -t zfs dpool/data/firefly-iii    "$MNT"/data/firefly-iii
+mount -o X-mount.mkdir -t zfs dpool/data/gitea          "$MNT"/data/gitea
+mount -o X-mount.mkdir -t zfs dpool/data/grafana        "$MNT"/data/grafana
 mount -o X-mount.mkdir -t zfs dpool/data/jellyfin       "$MNT"/data/jellyfin
 mount -o X-mount.mkdir -t zfs dpool/data/jirafeau       "$MNT"/data/jirafeau
 mount -o X-mount.mkdir -t zfs dpool/data/matrix-synapse "$MNT"/data/matrix-synapse
 mount -o X-mount.mkdir -t zfs dpool/data/nextcloud      "$MNT"/data/nextcloud
-mount -o X-mount.mkdir -t zfs dpool/data/syncthing      "$MNT"/data/syncthing
-mount -o X-mount.mkdir -t zfs dpool/data/gitea          "$MNT"/data/gitea
 mount -o X-mount.mkdir -t zfs dpool/data/peertube       "$MNT"/data/peertube
-mount -o X-mount.mkdir -t zfs dpool/data/tt-rss         "$MNT"/data/tt-rss
 mount -o X-mount.mkdir -t zfs dpool/data/rss-bridge     "$MNT"/data/rss-bridge
-mount -o X-mount.mkdir -t zfs dpool/data/firefly-iii    "$MNT"/data/firefly-iii
+mount -o X-mount.mkdir -t zfs dpool/data/syncthing      "$MNT"/data/syncthing
+mount -o X-mount.mkdir -t zfs dpool/data/tt-rss         "$MNT"/data/tt-rss

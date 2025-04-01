@@ -11,6 +11,7 @@ in
   imports = [
     inputs.core.nixosModules.firefly-iii
     inputs.core.nixosModules.gitea
+    inputs.core.nixosModules.grafana
     inputs.core.nixosModules.jellyfin
     inputs.core.nixosModules.jirafeau
     inputs.core.nixosModules.mailserver
@@ -62,6 +63,11 @@ in
   services.gitea = {
     enable = true;
     stateDir = "/data/gitea";
+  };
+
+  services.grafana = {
+    enable = true;
+    dataDir = "/data/grafana";
   };
 
   services.jellyfin = {
