@@ -152,6 +152,17 @@ in
     enable = true;
   };
 
+  services.rustdesk-server = {
+    enable = true;
+    openFirewall = true;
+    signal = {
+      enable = false; # true;
+      relayHosts = [
+        # TODO
+      ];
+    };
+  };
+
   services.rss-bridge = {
     enable = true;
     dataDir = "/data/rss-bridge";
