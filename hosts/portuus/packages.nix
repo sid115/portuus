@@ -2,7 +2,7 @@
 
 {
   environment.systemPackages = with pkgs; [
-    # core.marker-pdf # FIXME
+    core.marker-pdf
     intel-gpu-tools
     nvtopPackages.full
   ];
