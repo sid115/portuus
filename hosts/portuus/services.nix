@@ -156,9 +156,18 @@ in
     enable = true;
     openFirewall = true;
     signal = {
-      enable = false; # true;
-      relayHosts = [
-        # TODO
+      enable = true;
+      relayHosts = [ "portuus.de" ];
+      extraArgs = [
+        "--key"
+        "portuus.de"
+      ];
+    };
+    relay = {
+      enable = true;
+      extraArgs = [
+        "--key"
+        "portuus.de"
       ];
     };
   };
