@@ -54,6 +54,27 @@ in
   sops.secrets."mailserver/accounts/sid" = { };
   sops.secrets."mailserver/accounts/steffen" = { };
 
+  services.collabora-online = {
+    enable = true;
+    port = 9980;
+    settings = {
+      storage.wopi = {
+        "@allow" = true;
+      };
+      net.post_allow = {
+        host = [ "cloud.${domain}" ]; # Nextcloud-Domain
+      };
+    };
+  };
+
+  services.nginx.virtualHosts."office.${domain}" = {
+    forceSSL = true;
+    enableACME = true;
+    locations."/" = {
+      proxyPass = "http://127.0.0.1:9980";
+    };
+  };
+
   services.firefly-iii = {
     enable = true;
     subdomain = "finance";
@@ -106,11 +127,17 @@ in
         bookmarks
         calendar
         contacts
+        richdocuments
         # onlyoffice
         polls
         tasks
         whiteboard
         ;
+    };
+    settings = {
+      richdocuments = {
+        wopi_url = "https://office.${domain}";
+      };
     };
   };
 
