@@ -11,21 +11,20 @@
   modifications =
     final: prev:
     {
-      rss-bridge = inputs.nixpkgs-unstable.legacyPackages.x86_64-linux.rss-bridge;
     }
     // inputs.core.overlays.modifications final prev;
 
-  # unstable nixpkgs accessible through 'pkgs.unstable'
-  unstable-packages = final: prev: {
-    unstable = import inputs.nixpkgs-unstable {
+  # stable nixpkgs accessible through 'pkgs.stable'
+  stable-packages = final: prev: {
+    stable = import inputs.nixpkgs-stable {
       inherit (final) system;
       inherit (prev) config;
     };
   };
 
-  # old-stable nixpkgs accessible through 'pkgs.old'
+  # old-stable nixpkgs accessible through 'pkgs.old-stable'
   old-stable-packages = final: prev: {
-    old = import inputs.nixpkgs-old-stable {
+    old-stable = import inputs.nixpkgs-old-stable {
       inherit (final) system;
       inherit (prev) config;
     };
