@@ -54,27 +54,6 @@ in
   sops.secrets."mailserver/accounts/sid" = { };
   sops.secrets."mailserver/accounts/steffen" = { };
 
-  services.collabora-online = {
-    enable = true;
-    port = 9980;
-    settings = {
-      storage.wopi = {
-        "@allow" = true;
-      };
-      net.post_allow = {
-        host = [ "cloud.${domain}" ]; # Nextcloud-Domain
-      };
-    };
-  };
-
-  services.nginx.virtualHosts."office.${domain}" = {
-    forceSSL = true;
-    enableACME = true;
-    locations."/" = {
-      proxyPass = "http://127.0.0.1:9980";
-    };
-  };
-
   services.firefly-iii = {
     enable = true;
     subdomain = "finance";
@@ -127,9 +106,8 @@ in
         bookmarks
         calendar
         contacts
-        richdocuments
-        # onlyoffice
         polls
+        richdocuments
         tasks
         whiteboard
         ;
@@ -140,16 +118,30 @@ in
       };
     };
   };
-
-  # TODO: Turn into module
-  # services.onlyoffice = {
-  #   enable = true;
-  #   hostname = "office.${domain}";
-  # };
-  # services.nginx.virtualHosts."${config.services.onlyoffice.hostname}" = {
-  #   forceSSL = true;
-  #   enableACME = true;
-  # };
+  services.collabora-online = {
+    enable = true;
+    port = 9980;
+    settings = {
+      # rely on reverse proxy for SSL
+      ssl = {
+        enable = false;
+        termination = true;
+      };
+      storage.wopi = {
+        "@allow" = true;
+        host = [ "cloud.${domain}" ];
+      };
+      server_name = "office.${domain}";
+    };
+  };
+  services.nginx.virtualHosts."office.${domain}" = {
+    forceSSL = true;
+    enableACME = true;
+    locations."/" = {
+      proxyPass = "http://127.0.0.1:${toString config.services.collabora-online.port}";
+      proxyWebsockets = true;
+    };
+  };
 
   services.vaultwarden = {
     enable = true;
@@ -168,7 +160,7 @@ in
 
   services.ollama = {
     enable = true;
-    acceleration = "rocm"; # does not work on intel :( we need nvidia for cuda or at least amd
+    acceleration = "rocm"; # does not work on intel
     loadModels = [
       "deepseek-r1:7b"
       "mistral:7b"
