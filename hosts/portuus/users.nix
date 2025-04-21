@@ -15,7 +15,7 @@
     };
     sid = {
       name = "sid";
-      extraGroups = [ "wheel" ];
+      extraGroups = [ "wheel" "jellyfin" ];
       sshKeyFiles = [ ../../users/sid/pubkeys/gpg.pub ];
     };
   };
