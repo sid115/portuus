@@ -4,6 +4,7 @@
   imports = [
     ./boot.nix
     ./hardware.nix
+    ./hydra.nix
     ./minecraft-servers
     ./networking.nix
     ./packages.nix
