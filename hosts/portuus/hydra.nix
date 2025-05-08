@@ -11,6 +11,7 @@ in
     enable = true;
     port = 3344;
     hydraURL = "hydra.${config.networking.domain}";
+    buildMachinesFiles = [ "/etc/nix/machines" ];
     useSubstitutes = true;
 
     notificationSender = "hydra@${config.networking.domain}";
