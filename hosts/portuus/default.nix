@@ -4,6 +4,7 @@
   imports = [
     ./attic.nix
     ./boot.nix
+    ./cache.nix
     ./hardware.nix
     ./hydra.nix
     ./minecraft-servers
