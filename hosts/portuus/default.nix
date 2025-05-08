@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./attic.nix
     ./boot.nix
     ./hardware.nix
     ./hydra.nix
