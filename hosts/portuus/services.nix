@@ -1,6 +1,7 @@
 {
   inputs,
   config,
+  pkgs,
   ...
 }:
 
@@ -24,6 +25,7 @@ in
     inputs.core.nixosModules.rss-bridge
     inputs.core.nixosModules.tt-rss
     inputs.core.nixosModules.vaultwarden
+    inputs.nix-docs.nixosModules.docs-server
   ];
 
   mailserver = {
@@ -53,6 +55,11 @@ in
   sops.secrets."mailserver/accounts/info" = { };
   sops.secrets."mailserver/accounts/sid" = { };
   sops.secrets."mailserver/accounts/steffen" = { };
+
+  services.docs-server = {
+    enable = true;
+    docsPackage = inputs.nix-docs.packages."${pkgs.system}".docs;
+  };
 
   services.firefly-iii = {
     enable = true;

@@ -23,6 +23,8 @@
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
 
     toggle-web-app.url = "github:sid115/toggle-web-app";
+
+    nix-docs.url = "github:sid115/nix-docs";
   };
 
   outputs =
