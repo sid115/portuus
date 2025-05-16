@@ -11,7 +11,7 @@ let
 in
 {
   services.atticd = {
-    enable = true;
+    # enable = true; # dormant for now
     environmentFile = config.sops.templates."attic/environment-file".path;
     settings = {
       listen = "127.0.0.1:${port}";

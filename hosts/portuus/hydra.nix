@@ -11,45 +11,16 @@ in
     enable = true;
     port = 3344;
     hydraURL = "hydra.${config.networking.domain}";
-    buildMachinesFiles = [ "/etc/nix/machines" ];
+    # buildMachinesFiles = [ "/etc/nix/machines" ];
     useSubstitutes = true;
 
     notificationSender = "hydra@${config.networking.domain}";
     smtpHost = config.mailserver.fqdn;
   };
 
-  nix.buildMachines =
-    let
-      hostName = "localhost";
-      protocol = null;
-      supportedFeatures = [
-        "kvm"
-        "nixos-test"
-        "big-parallel"
-        "benchmark"
-      ];
-      maxJobs = 8;
-    in
-    [
-      {
-        inherit
-          hostName
-          protocol
-          supportedFeatures
-          maxJobs
-          ;
-        system = "x86_64-linux";
-      }
-      {
-        inherit
-          hostName
-          protocol
-          supportedFeatures
-          maxJobs
-          ;
-        system = "aarch64-linux";
-      }
-    ];
+  # put this in the aarch64 vm:
+  # boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+  # nix.settings.extra-platforms = config.boot.binfmt.emulatedSystems;
 
   nix.settings.allowed-uris = [
     "github:"
