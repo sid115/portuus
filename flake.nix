@@ -23,6 +23,15 @@
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
 
     toggle-web-app.url = "github:sid115/toggle-web-app";
+
+    nuschtos-search.url = "github:NuschtOS/search";
+    nuschtos-search.inputs.nixpkgs.follows = "nixpkgs";
+
+    # for NuschtOS search
+    disko.url = "github:nix-community/disko";
+    nixos-hardware.url = "github:NixOS/nixos-hardware";
+    stylix.url = "github:nix-community/stylix";
+    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.6.0";
   };
 
   outputs =

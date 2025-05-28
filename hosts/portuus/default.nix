@@ -9,6 +9,7 @@
     ./hydra.nix
     ./minecraft-servers
     ./networking.nix
+    ./nuschtos-search.nix
     ./packages.nix
     ./services.nix
     ./users.nix
