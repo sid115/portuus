@@ -110,6 +110,17 @@
           name = "nix-flatpak";
           urlPrefix = "https://github.com/gmodena/nix-flatpak/blob/main/";
         }
+        # nix-core
+        {
+          modules = [
+            {
+              _module.args = { inherit pkgs; };
+            }
+            # ] ++ lib.filter (x: (builtins.tryEval (x)).success) (lib.attrValues inputs.core.nixosModules);
+          ] ++ [ inputs.core.nixosModules.krdpserver ];
+          name = "nix-core";
+          urlPrefix = "https://github.com/sid115/nix-core/blob/main/";
+        }
       ];
     };
   };
