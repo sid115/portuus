@@ -96,6 +96,9 @@ in
     enable = true;
     dataDir = "/data/matrix-synapse";
   };
+  services.coturn.extraConfig = ''
+    no-ipv6
+  '';
 
   services.nextcloud = {
     enable = true;
