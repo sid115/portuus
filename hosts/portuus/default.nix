@@ -2,14 +2,11 @@
 
 {
   imports = [
-    ./attic.nix
     ./boot.nix
-    ./cache.nix
     ./hardware.nix
-    ./hydra.nix
     ./minecraft-servers
     ./networking.nix
-    ./nuschtos-search.nix
+    # ./nuschtos-search.nix
     ./packages.nix
     ./services.nix
     ./users.nix

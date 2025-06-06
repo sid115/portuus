@@ -5,7 +5,6 @@
 
   normalUsers = {
     steffen = {
-      name = "steffen";
       extraGroups = [ "wheel" ];
       sshKeyFiles = [
         ../../users/steffen/pubkeys/L13G2.pub
@@ -14,8 +13,10 @@
       ];
     };
     sid = {
-      name = "sid";
-      extraGroups = [ "wheel" "jellyfin" ];
+      extraGroups = [
+        "wheel"
+        "jellyfin"
+      ];
       sshKeyFiles = [ ../../users/sid/pubkeys/gpg.pub ];
     };
   };

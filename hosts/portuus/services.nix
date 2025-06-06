@@ -12,12 +12,14 @@ in
     inputs.core.nixosModules.firefly-iii
     inputs.core.nixosModules.gitea
     inputs.core.nixosModules.grafana
+    inputs.core.nixosModules.hydra
     inputs.core.nixosModules.jellyfin
     inputs.core.nixosModules.jirafeau
     inputs.core.nixosModules.mailserver
     inputs.core.nixosModules.matrix-synapse
     inputs.core.nixosModules.nextcloud
     inputs.core.nixosModules.nginx
+    inputs.core.nixosModules.nix-serve
     inputs.core.nixosModules.open-webui
     inputs.core.nixosModules.openssh
     inputs.core.nixosModules.peertube
@@ -28,6 +30,7 @@ in
 
   mailserver = {
     enable = true;
+    stateVersion = 1;
     loginAccounts = {
       "ig@${domain}" = {
         hashedPasswordFile = config.sops.secrets."mailserver/accounts/ig".path;
@@ -78,6 +81,8 @@ in
     enable = true;
     dataDir = "/data/grafana";
   };
+
+  services.hydra.enable = true;
 
   services.jellyfin = {
     enable = true;
@@ -145,6 +150,8 @@ in
       proxyWebsockets = true;
     };
   };
+
+  services.nix-serve.enable = true;
 
   services.vaultwarden = {
     enable = true;

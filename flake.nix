@@ -7,7 +7,8 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    core.url = "github:sid115/nix-core/feature/nuschtos-search";
+    # core.url = "github:sid115/nix-core/feature/nuschtos-search";
+    core.url = "github:sid115/nix-core";
     core.inputs.nixpkgs.follows = "nixpkgs";
 
     nixvim.url = "github:nix-community/nixvim";
@@ -28,10 +29,10 @@
     nuschtos-search.inputs.nixpkgs.follows = "nixpkgs";
 
     # for NuschtOS search
-    disko.url = "github:nix-community/disko";
-    nixos-hardware.url = "github:NixOS/nixos-hardware";
-    stylix.url = "github:nix-community/stylix";
-    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.6.0";
+    # disko.url = "github:nix-community/disko";
+    # nixos-hardware.url = "github:NixOS/nixos-hardware";
+    # stylix.url = "github:nix-community/stylix";
+    # nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.6.0";
   };
 
   outputs =
