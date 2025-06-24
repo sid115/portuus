@@ -1,6 +1,8 @@
 {
   inputs,
   config,
+  pkgs,
+  lib,
   ...
 }:
 
@@ -17,6 +19,7 @@ in
     inputs.core.nixosModules.jirafeau
     inputs.core.nixosModules.mailserver
     inputs.core.nixosModules.matrix-synapse
+    inputs.core.nixosModules.mcpo
     inputs.core.nixosModules.nextcloud
     inputs.core.nixosModules.nginx
     inputs.core.nixosModules.nix-serve
@@ -30,7 +33,7 @@ in
 
   mailserver = {
     enable = true;
-    stateVersion = 1;
+    stateVersion = 3;
     loginAccounts = {
       "ig@${domain}" = {
         hashedPasswordFile = config.sops.secrets."mailserver/accounts/ig".path;
@@ -179,6 +182,17 @@ in
 
   services.open-webui = {
     enable = true;
+  };
+  services.mcpo = {
+    enable = true;
+    package = inputs.core.packages.${pkgs.system}.mcpo;
+    settings = {
+      mcpServers = {
+        nixos = {
+          command = lib.getExe inputs.mcp-nixos.packages.${pkgs.system}.mcp-nixos;
+        };
+      };
+    };
   };
 
   services.rustdesk-server = {

@@ -7,8 +7,8 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    # core.url = "github:sid115/nix-core/feature/nuschtos-search";
-    core.url = "github:sid115/nix-core";
+    core.url = "github:sid115/nix-core/feature/mcpo";
+    # core.url = "github:sid115/nix-core";
     core.inputs.nixpkgs.follows = "nixpkgs";
 
     nixvim.url = "github:nix-community/nixvim";
@@ -24,6 +24,9 @@
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
 
     toggle-web-app.url = "github:sid115/toggle-web-app";
+
+    mcp-nixos.url = "github:utensils/mcp-nixos";
+    mcp-nixos.inputs.nixpkgs.follows = "nixpkgs";
 
     nuschtos-search.url = "github:NuschtOS/search";
     nuschtos-search.inputs.nixpkgs.follows = "nixpkgs";
