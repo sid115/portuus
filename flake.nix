@@ -46,6 +46,25 @@
       forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
     in
     {
+      apps = forAllSystems (
+        system:
+        let
+          pkgs = nixpkgs.legacyPackages.${system};
+        in
+        {
+          default = self.apps.${system}.rebuild;
+          rebuild = {
+            type = "app";
+            program =
+              let
+                pkg = pkgs.callPackage ./apps/rebuild { };
+              in
+              "${pkg}/bin/rebuild";
+            meta.description = "Rebuild NixOS configuration for portuus.";
+          };
+        }
+      );
+
       packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
 
       overlays = import ./overlays { inherit inputs; };
