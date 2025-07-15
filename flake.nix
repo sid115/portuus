@@ -71,16 +71,6 @@
 
       nixosModules = import ./modules/nixos;
 
-      devShells = forAllSystems (
-        system:
-        let
-          pkgs = nixpkgs.legacyPackages.${system};
-        in
-        {
-          default = import ./shell.nix { inherit pkgs; };
-        }
-      );
-
       nixosConfigurations = {
         portuus = nixpkgs.lib.nixosSystem {
           specialArgs = {
