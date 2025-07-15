@@ -27,6 +27,7 @@ in
     inputs.core.nixosModules.openssh
     inputs.core.nixosModules.peertube
     inputs.core.nixosModules.rss-bridge
+    inputs.core.nixosModules.searx
     inputs.core.nixosModules.tt-rss
     inputs.core.nixosModules.vaultwarden
   ];
@@ -241,6 +242,11 @@ in
     owner = config.services.rss-bridge.user;
     group = config.services.rss-bridge.group;
     mode = "0440";
+  };
+
+  services.searx = {
+    enable = true;
+    subdomain = "search";
   };
 
   services.tt-rss = {
