@@ -186,11 +186,17 @@ in
   };
   services.mcpo = {
     enable = true;
-    package = inputs.core.packages.${pkgs.system}.mcpo;
+    package = pkgs.core.mcpo;
     settings = {
       mcpServers = {
         nixos = {
           command = lib.getExe inputs.mcp-nixos.packages.${pkgs.system}.mcp-nixos;
+        };
+        fetcher = {
+          command = lib.getExe pkgs.core.fetcher-mcp;
+        };
+        gitingest = {
+          command = lib.getExe pkgs.core.trelis-gitingest-mcp;
         };
       };
     };
