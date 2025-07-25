@@ -8,6 +8,7 @@
     ./networking.nix
     # ./nuschtos-search.nix
     ./packages.nix
+    ./programs.nix
     ./services.nix
     ./users.nix
     ./vde.nix
