@@ -5,7 +5,10 @@
 
   normalUsers = {
     steffen = {
-      extraGroups = [ "wheel" ];
+      extraGroups = [
+        "wheel"
+        "jellyfin"
+      ];
       sshKeyFiles = [
         ../../users/steffen/pubkeys/L13G2.pub
         ../../users/steffen/pubkeys/X670E.pub
