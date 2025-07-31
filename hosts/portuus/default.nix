@@ -4,6 +4,7 @@
   imports = [
     ./boot.nix
     ./hardware.nix
+    # ./jitsi-meet.nix
     ./minecraft-servers
     ./networking.nix
     # ./nuschtos-search.nix
