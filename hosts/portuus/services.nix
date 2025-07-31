@@ -93,6 +93,12 @@ in
     dataDir = "/data/jellyfin";
     cacheDir = "${config.services.jellyfin.dataDir}/cache";
     subdomain = "media";
+    libraries = [
+      "books/audiobooks"
+      "movies"
+      "music"
+      "shows"
+    ];
   };
 
   services.jirafeau = {
