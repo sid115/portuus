@@ -208,24 +208,30 @@ in
     };
   };
 
-  services.rustdesk-server = {
-    enable = true;
-    openFirewall = true;
-    signal = {
-      enable = true;
-      relayHosts = [ "portuus.de" ];
+  services.rustdesk-server =
+    let
       extraArgs = [
         "--key"
-        "portuus.de"
+        "\"$(cat ${config.sops.secrets."rustdesk-server/key".path})\""
       ];
-    };
-    relay = {
+    in
+    {
       enable = true;
-      extraArgs = [
-        "--key"
-        "portuus.de"
-      ];
+      openFirewall = true;
+      signal = {
+        enable = true;
+        relayHosts = [ "portuus.de" ];
+        inherit extraArgs;
+      };
+      relay = {
+        enable = true;
+        inherit extraArgs;
+      };
     };
+  sops.secrets."rustdesk-server/key" = {
+    owner = "rustdesk";
+    group = "rustdesk";
+    mode = "0440";
   };
 
   services.rss-bridge = {
