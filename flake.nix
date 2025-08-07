@@ -4,7 +4,7 @@
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs-old-stable.url = "github:nixos/nixpkgs/nixos-24.11";
 
-    core.url = "github:sid115/nix-core/develop";
+    core.url = "github:sid115/nix-core/feature/vpn-server";
     core.inputs.nixpkgs.follows = "nixpkgs";
 
     nixos-mailserver.url = "gitlab:simple-nixos-mailserver/nixos-mailserver";

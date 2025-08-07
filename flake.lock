@@ -27,16 +27,16 @@
         "pre-commit-hooks": "pre-commit-hooks"
       },
       "locked": {
-        "lastModified": 1754574561,
-        "narHash": "sha256-Y8/K+qezAiBm24HFmIz05vSKjBpDl19GT4IFA80y9I8=",
+        "lastModified": 1754589274,
+        "narHash": "sha256-UNMvD2QkOLz3rxD7WBJV1WPbMDKuqBGMRSzva1tUzVA=",
         "owner": "sid115",
         "repo": "nix-core",
-        "rev": "f5d89b0bb5c2cc6cd711e3f19fe6742cb200c36b",
+        "rev": "295a530ec8697c11151567555336c59560a797b5",
         "type": "github"
       },
       "original": {
         "owner": "sid115",
-        "ref": "develop",
+        "ref": "feature/vpn-server",
         "repo": "nix-core",
         "type": "github"
       }

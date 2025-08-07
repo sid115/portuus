@@ -13,6 +13,7 @@
     ./services.nix
     ./users.nix
     ./vde.nix
+    ./vpn-server.nix
 
     inputs.core.nixosModules.common
     inputs.core.nixosModules.sops
