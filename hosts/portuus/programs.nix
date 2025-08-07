@@ -1,4 +1,5 @@
 {
   programs.adb.enable = true;
-  users.users.sid.extraGroups = [ "adbusers" ];
+
+  programs.direnv.enable = true;
 }

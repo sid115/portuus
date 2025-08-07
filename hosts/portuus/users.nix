@@ -18,6 +18,8 @@
       extraGroups = [
         "wheel"
         "jellyfin"
+        "adbusers"
+        "kvm"
       ];
       sshKeyFiles = [ ../../users/sid/pubkeys/gpg.pub ];
     };
