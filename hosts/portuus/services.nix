@@ -204,6 +204,9 @@ in
         gitingest = {
           command = lib.getExe pkgs.core.trelis-gitingest-mcp;
         };
+        arxiv = {
+          command = lib.getExe pkgs.core.arxiv-mcp-server;
+        };
       };
     };
   };
