@@ -15,6 +15,7 @@ in
     inputs.core.nixosModules.gitea
     inputs.core.nixosModules.grafana
     inputs.core.nixosModules.hydra
+    inputs.core.nixosModules.instaloader
     inputs.core.nixosModules.jellyfin
     inputs.core.nixosModules.jirafeau
     inputs.core.nixosModules.mailserver
@@ -87,6 +88,24 @@ in
   };
 
   services.hydra.enable = true;
+
+  services.instaloader = {
+    enable = true;
+    package =
+      with pkgs;
+      (instaloader.overridePythonAttrs (oldAttrs: {
+        propagatedBuildInputs = (oldAttrs.propagatedBuildInputs or [ ]) ++ [
+          python3Packages.browser-cookie3
+        ];
+      }));
+    login = "igportuus";
+    extraArgs = [ "--post-filter='date_utc >= datetime(2025, 1, 1)'" ];
+    profiles = [
+      "kalteliebelive"
+      "kukocologne"
+      "tham.bln"
+    ];
+  };
 
   services.jellyfin = {
     enable = true;
