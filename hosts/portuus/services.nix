@@ -101,7 +101,7 @@ in
         ];
       }));
     login = "igportuus";
-    extraArgs = [ "--post-filter='date_utc >= datetime(2025, 1, 1)'" ];
+    # extraArgs = [ "--post-filter='date_utc>=datetime(2025,1,1)'" ];
     profiles = [
       "kalteliebelive"
       "kukocologne"

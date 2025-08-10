@@ -349,11 +349,11 @@
         "pre-commit-hooks": "pre-commit-hooks_2"
       },
       "locked": {
-        "lastModified": 1754838981,
-        "narHash": "sha256-8rHthG4ZtMGy8Vw5HgqxSv6qeSG87eQTnTw1f3Jgxy8=",
+        "lastModified": 1754861849,
+        "narHash": "sha256-NqzvhOhSWf3rd1StHfjP0jkpwXAdbjEqO0zikC6PvFA=",
         "owner": "sid115",
         "repo": "instaloader-web-frontend",
-        "rev": "ed6dda17a0f0e43bb34bac026bc04ee3719c85d3",
+        "rev": "1bffb7fa173765a5d9c1d0393ded6edc3aca1d8b",
         "type": "github"
       },
       "original": {
