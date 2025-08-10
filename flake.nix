@@ -24,6 +24,9 @@
     nuschtos-search.url = "github:NuschtOS/search";
     nuschtos-search.inputs.nixpkgs.follows = "nixpkgs";
 
+    ig.url = "github:sid115/instaloader-web-frontend";
+    ig.inputs.nixpkgs.follows = "nixpkgs";
+
     # for NuschtOS search
     # disko.url = "github:nix-community/disko";
     # nixos-hardware.url = "github:NixOS/nixos-hardware";

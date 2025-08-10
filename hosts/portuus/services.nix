@@ -31,6 +31,8 @@ in
     inputs.core.nixosModules.searx
     inputs.core.nixosModules.tt-rss
     inputs.core.nixosModules.vaultwarden
+
+    inputs.ig.nixosModules.ig
   ];
 
   mailserver = {
@@ -105,6 +107,10 @@ in
       "kukocologne"
       "tham.bln"
     ];
+  };
+
+  services.ig = {
+    enable = true;
   };
 
   services.jellyfin = {
