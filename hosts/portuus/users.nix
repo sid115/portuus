@@ -1,39 +1,12 @@
 { inputs, ... }:
 
 {
-  imports = [ inputs.core.nixosModules.normalUsers ];
+  imports = [
+    inputs.core.nixosModules.normalUsers
 
-  normalUsers = {
-    steffen = {
-      extraGroups = [
-        "wheel"
-        "jellyfin"
-      ];
-      sshKeyFiles = [
-        ../../users/steffen/pubkeys/L13G2.pub
-        ../../users/steffen/pubkeys/X670E.pub
-      ];
-    };
-    sid = {
-      extraGroups = [
-        "wheel"
-        "jellyfin"
-        "adbusers"
-        "kvm"
-      ];
-      sshKeyFiles = [ ../../users/sid/pubkeys/gpg.pub ];
-    };
-    ulm = {
-      extraGroups = [
-        "wheel"
-      ];
-      sshKeyFiles = [ ../../users/ulm/pubkeys/kali.pub ];
-    };
-    pascal = {
-      extraGroups = [
-        "wheel"
-      ];
-      sshKeyFiles = [ ../../users/pascal/pubkeys/key.pub ];
-    };
-  };
+    ../../users/pascal
+    ../../users/sid
+    ../../users/steffen
+    ../../users/ulm
+  ];
 }
