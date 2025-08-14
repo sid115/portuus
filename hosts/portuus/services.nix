@@ -141,7 +141,7 @@ in
   '';
 
   services.nextcloud = {
-    # enable = true; # HOTFIX
+    enable = true;
     datadir = "/data/nextcloud";
     subdomain = "cloud";
     extraApps = {
@@ -152,7 +152,7 @@ in
         polls
         richdocuments
         tasks
-        whiteboard
+        # whiteboard # see https://github.com/sid115/portuus/issues/6
         ;
     };
     settings = {
