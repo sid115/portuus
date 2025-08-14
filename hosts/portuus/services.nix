@@ -141,7 +141,7 @@ in
   '';
 
   services.nextcloud = {
-    enable = true;
+    # enable = true; # HOTFIX
     datadir = "/data/nextcloud";
     subdomain = "cloud";
     extraApps = {
@@ -213,7 +213,7 @@ in
   };
 
   services.open-webui = {
-    enable = true;
+    # enable = true; # HOTFIX
   };
   services.mcpo = {
     enable = true;
