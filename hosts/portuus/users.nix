@@ -23,5 +23,17 @@
       ];
       sshKeyFiles = [ ../../users/sid/pubkeys/gpg.pub ];
     };
+    ulm = {
+      extraGroups = [
+        "wheel"
+      ];
+      sshKeyFiles = [ ../../users/ulm/pubkeys/kali.pub ];
+    };
+    pascal = {
+      extraGroups = [
+        "wheel"
+      ];
+      sshKeyFiles = [ ../../users/pascal/pubkeys/key.pub ];
+    };
   };
 }
