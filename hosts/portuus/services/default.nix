@@ -21,6 +21,7 @@
     ./nginx.nix
     ./openssh.nix
     ./open-webui.nix
+    ./radicale.nix
     ./rustdesk-server.nix
     ./rss-bridge.nix
     ./tt-rss.nix
