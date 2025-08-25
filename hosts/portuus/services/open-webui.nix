@@ -12,7 +12,7 @@
   ];
 
   services.open-webui = {
-    # enable = true; # FIXME
+    enable = true; # FIXME
   };
 
   services.ollama = {
