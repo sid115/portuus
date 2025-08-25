@@ -8,22 +8,24 @@
     ./ig.nix
     ./jellyfin.nix
     ./jirafeau.nix
-    # ./jitsi-meet.nix
     ./mailserver.nix
     ./matrix-synapse.nix
     ./minecraft-servers.nix
     ./nextcloud.nix
+    ./nginx.nix
     ./nix-serve.nix
-    # ./nuschtos-search.nix
+    ./open-webui.nix
+    ./openssh.nix
+    ./peertube.nix
+    ./radicale.nix
+    ./rss-bridge.nix
+    ./rustdesk-server.nix
+    ./searx.nix
+    ./tt-rss.nix
     ./vaultwarden.nix
     ./vde.nix
-    ./peertube.nix
-    ./nginx.nix
-    ./openssh.nix
-    ./open-webui.nix
-    ./radicale.nix
-    ./rustdesk-server.nix
-    ./rss-bridge.nix
-    ./tt-rss.nix
+
+    # ./jitsi-meet.nix
+    # ./nuschtos-search.nix
   ];
 }
