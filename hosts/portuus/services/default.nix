@@ -1,5 +1,6 @@
 {
   imports = [
+    ./cockpit.nix
     ./firefly-iii.nix
     ./gitea.nix
     ./github-runners.nix
