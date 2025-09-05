@@ -7,6 +7,7 @@
   sops.secrets."mailserver/accounts/info" = { };
   sops.secrets."mailserver/accounts/sid" = { };
   sops.secrets."mailserver/accounts/steffen" = { };
+  sops.secrets."mailserver/accounts/jfk" = { };
 
   sops.secrets."github-runners/nix-core" = { };
 

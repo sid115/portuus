@@ -28,6 +28,9 @@ in
         hashedPasswordFile = config.sops.secrets."mailserver/accounts/steffen".path;
         aliases = [ "postmaster@${domain}" ];
       };
+      "jfk@${domain}" = {
+        hashedPasswordFile = config.sops.secrets."mailserver/accounts/jfk".path;
+      };
     };
   };
 }
