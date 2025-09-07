@@ -6,5 +6,6 @@
   services.vaultwarden = {
     enable = true;
     subdomain = "vault";
+    backupDir = "/data/backup/vaultwarden";
   };
 }

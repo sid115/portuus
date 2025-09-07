@@ -133,6 +133,8 @@ zfs create -o canmount=noauto -o mountpoint=legacy dpool/data
 mount -o X-mount.mkdir -t zfs dpool/data "$MNT"/data
 
 # Create data sets
+zfs create -o mountpoint=legacy dpool/data/backup # TODO: move this to separate pool
+
 zfs create -o mountpoint=legacy dpool/data/firefly-iii
 zfs create -o mountpoint=legacy dpool/data/gitea
 zfs create -o mountpoint=legacy dpool/data/grafana
@@ -146,6 +148,8 @@ zfs create -o mountpoint=legacy dpool/data/syncthing
 zfs create -o mountpoint=legacy dpool/data/tt-rss
 
 # Mount datasets
+mount -o X-mount.mkdir -t zfs dpool/data/backup         "$MNT"/data/backup
+
 mount -o X-mount.mkdir -t zfs dpool/data/firefly-iii    "$MNT"/data/firefly-iii
 mount -o X-mount.mkdir -t zfs dpool/data/gitea          "$MNT"/data/gitea
 mount -o X-mount.mkdir -t zfs dpool/data/grafana        "$MNT"/data/grafana
