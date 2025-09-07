@@ -1,11 +1,14 @@
 { pkgs, ... }:
 
+# Mark datasets to snapshot
+# sudo zfs set com.sun:auto-snapshot:daily=true dpool/data/backup
+
 {
   services.zfs.autoSnapshot = {
     enable = true;
     flags = "-k -p --utc";
     frequent = 0;
-    hourly = 0;
+    hourly = 24;
     daily = 7;
     weekly = 4;
     monthly = 12;
