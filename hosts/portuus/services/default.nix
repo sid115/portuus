@@ -25,6 +25,7 @@
     ./tt-rss.nix
     ./vaultwarden.nix
     ./vde.nix
+    ./zfs.nix
 
     # ./jitsi-meet.nix
     # ./nuschtos-search.nix
