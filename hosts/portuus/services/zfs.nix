@@ -25,5 +25,18 @@
     followDelete = true;
   };
 
+  services.zfs.zed = {
+    enableMail = true;
+    settings = {
+      ZED_EMAIL_ADDR = "postmaster@portuus.de";
+      ZED_EMAIL_PROG = "sendmail";
+      ZED_EMAIL_OPTS = "-t -f root@localhost";
+      ZED_NOTIFY_VERBOSE = "1";
+      ZED_NOTIFY_DATA = "1";
+      ZED_NOTIFY_ERROR = "1";
+      ZED_NOTIFY_WARNING = "1";
+    };
+  };
+
   environment.systemPackages = with pkgs; [ lz4 ];
 }
