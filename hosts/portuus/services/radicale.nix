@@ -7,6 +7,7 @@
     enable = true;
     users = [
       "sid"
+      "susagi"
       "ulm"
     ];
   };
