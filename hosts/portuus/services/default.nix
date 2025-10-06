@@ -22,6 +22,7 @@
     ./rss-bridge.nix
     ./rustdesk-server.nix
     ./searx.nix
+    ./spliit.nix
     ./tt-rss.nix
     ./vaultwarden.nix
     ./vde.nix
