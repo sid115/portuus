@@ -12,7 +12,8 @@
   ];
 
   services.open-webui = {
-    enable = true; # FIXME
+    enable = true;
+    package = pkgs.core.open-webui;
   };
 
   services.ollama = {
