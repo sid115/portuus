@@ -15,7 +15,6 @@ in
         bookmarks
         calendar
         contacts
-        polls
         richdocuments
         tasks
         # whiteboard # FIXME: https://github.com/sid115/portuus/issues/6
