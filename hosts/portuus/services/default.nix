@@ -6,7 +6,6 @@
     ./github-runners.nix
     ./grafana.nix
     ./hydra.nix
-    ./ig.nix
     ./jellyfin.nix
     ./jirafeau.nix
     ./mailserver.nix
@@ -27,6 +26,7 @@
     ./vde.nix
     ./zfs.nix
 
+    # ./ig.nix # FIXME
     # ./spliit.nix # FIXME
     # ./jitsi-meet.nix
     # ./nuschtos-search.nix
