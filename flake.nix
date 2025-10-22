@@ -1,6 +1,8 @@
 {
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    # do not enter a commit newer than 7109802e4ee30b0f4aaccc0fbddf21fb44c303d3 before finding an alternative to tt-rss
+    nixpkgs.url = "github:nixos/nixpkgs/434ad86be8f88924e6c36e2530b5e3f1d1b397eb"; # matrix-synapse v1.138.2
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs-old-stable.url = "github:nixos/nixpkgs/nixos-24.11";
 

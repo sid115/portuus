@@ -15,8 +15,8 @@
   };
 
   services.zfs.autoReplication = {
-    enable = true;
-    host = "91.98.86.229";
+    # enable = true;
+    host = "91.98.86.229"; # TODO: Deploy permanent backup server
     username = "root";
     # sudo -i ssh-keygen -t rsa -b 4096 -f /root/.ssh/zfs-replication
     identityFilePath = "/root/.ssh/zfs-replication";
