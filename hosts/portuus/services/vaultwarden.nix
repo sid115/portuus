@@ -6,6 +6,6 @@
   services.vaultwarden = {
     enable = true;
     subdomain = "vault";
-    backupDir = "/data/backup/vaultwarden";
+    # backupDir = "/data/backup/vaultwarden"; # FIXME
   };
 }
