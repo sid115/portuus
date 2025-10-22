@@ -7,6 +7,9 @@
     core.url = "github:sid115/nix-core/develop";
     core.inputs.nixpkgs.follows = "nixpkgs";
 
+    git-hooks.url = "github:cachix/git-hooks.nix";
+    git-hooks.inputs.nixpkgs.follows = "nixpkgs";
+
     nixos-mailserver.url = "gitlab:simple-nixos-mailserver/nixos-mailserver";
     nixos-mailserver.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -82,5 +85,32 @@
           modules = [ ./hosts/portuus ];
         };
       };
+
+      checks = forAllSystems (
+        system:
+        let
+          pkgs = nixpkgs.legacyPackages.${system};
+          flakePkgs = self.packages.${system};
+          overlaidPkgs = import nixpkgs {
+            inherit system;
+            overlays = [ self.overlays.modifications ];
+          };
+        in
+        {
+          pre-commit-check = inputs.git-hooks.lib.${system}.run {
+            src = ./.;
+            hooks = {
+              # TODO: Change to nixfmt-tree when git-hooks supports it
+              nixfmt-rfc-style = {
+                enable = true;
+                package = pkgs.nixfmt-tree;
+                entry = "${pkgs.nixfmt-tree}/bin/treefmt --no-cache";
+              };
+            };
+          };
+          # build-packages = pkgs.linkFarm "flake-packages-${system}" flakePkgs;
+          # build-overlays = pkgs.linkFarm "flake-overlays-${system}" { };
+        }
+      );
     };
 }
