@@ -22,12 +22,12 @@
     ./rss-bridge.nix
     ./rustdesk-server.nix
     ./searx.nix
-    ./spliit.nix
     ./tt-rss.nix
     ./vaultwarden.nix
     ./vde.nix
     ./zfs.nix
 
+    # ./spliit.nix # FIXME
     # ./jitsi-meet.nix
     # ./nuschtos-search.nix
   ];
