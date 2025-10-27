@@ -42,7 +42,7 @@ in
     services.nginx.virtualHosts.${fqdn} = {
       forceSSL = cfg.forceSSL;
       enableACME = cfg.forceSSL;
-      locations."/".proxyPass = mkDefault "http://localhost:${cfg.port}";
+      locations."/".proxyPass = mkDefault "http://localhost:${builtins.toString cfg.port}";
     };
 
     sops =
