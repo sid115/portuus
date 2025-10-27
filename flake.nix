@@ -104,7 +104,7 @@
             hooks = {
               # TODO: Change to nixfmt-tree when git-hooks supports it
               nixfmt-rfc-style = {
-                enable = true;
+                # enable = true; # FIXME: error: Cannot build '/nix/store/s84yz1xv1jigdc4l9qv39f31jy4kh6vh-pre-commit-run.drv'
                 package = pkgs.nixfmt-tree;
                 entry = "${pkgs.nixfmt-tree}/bin/treefmt --no-cache";
               };
