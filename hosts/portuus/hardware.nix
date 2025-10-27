@@ -67,6 +67,11 @@
     fsType = "zfs";
   };
 
+  fileSystems."/data/immich" = {
+    device = "dpool/data/immich";
+    fsType = "zfs";
+  };
+
   fileSystems."/data/jellyfin" = {
     device = "dpool/data/jellyfin";
     fsType = "zfs";

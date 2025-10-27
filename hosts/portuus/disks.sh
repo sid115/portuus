@@ -138,6 +138,7 @@ zfs create -o mountpoint=legacy dpool/data/backup # TODO: move this to separate 
 zfs create -o mountpoint=legacy dpool/data/firefly-iii
 zfs create -o mountpoint=legacy dpool/data/gitea
 zfs create -o mountpoint=legacy dpool/data/grafana
+zfs create -o mountpoint=legacy dpool/data/immich
 zfs create -o mountpoint=legacy dpool/data/jellyfin
 zfs create -o mountpoint=legacy dpool/data/jirafeau
 zfs create -o mountpoint=legacy dpool/data/matrix-synapse
@@ -153,6 +154,7 @@ mount -o X-mount.mkdir -t zfs dpool/data/backup         "$MNT"/data/backup
 mount -o X-mount.mkdir -t zfs dpool/data/firefly-iii    "$MNT"/data/firefly-iii
 mount -o X-mount.mkdir -t zfs dpool/data/gitea          "$MNT"/data/gitea
 mount -o X-mount.mkdir -t zfs dpool/data/grafana        "$MNT"/data/grafana
+mount -o X-mount.mkdir -t zfs dpool/data/immich         "$MNT"/data/immich
 mount -o X-mount.mkdir -t zfs dpool/data/jellyfin       "$MNT"/data/jellyfin
 mount -o X-mount.mkdir -t zfs dpool/data/jirafeau       "$MNT"/data/jirafeau
 mount -o X-mount.mkdir -t zfs dpool/data/matrix-synapse "$MNT"/data/matrix-synapse
