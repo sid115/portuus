@@ -1,7 +1,7 @@
-{ outputs, ... }:
+{ inputs, ... }:
 
 {
-  imports = [ outputs.nixosModules.immich ];
+  imports = [ inputs.core.nixosModules.immich ];
 
   services.immich = {
     enable = true;
