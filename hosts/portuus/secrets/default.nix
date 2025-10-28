@@ -11,7 +11,7 @@
   sops.secrets."mailserver/accounts/lissy" = { };
   sops.secrets."mailserver/accounts/ulm" = { };
 
-  sops.secrets."github-runners/nix-core" = { };
+  sops.secrets."github-runners/portuus" = { };
 
   sops.secrets."rustdesk-server/key" = {
     owner = "rustdesk";
