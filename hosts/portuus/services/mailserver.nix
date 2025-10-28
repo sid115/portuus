@@ -34,6 +34,9 @@ in
       "lissy@${domain}" = {
         hashedPasswordFile = config.sops.secrets."mailserver/accounts/lissy".path;
       };
+      "ulm@${domain}" = {
+        hashedPasswordFile = config.sops.secrets."mailserver/accounts/ulm".path;
+      };
     };
   };
 }
