@@ -26,9 +26,8 @@
   };
 
   services.mcpo = {
-    # FIXME: pkgs.core overlay is broken
-    # enable = true;
-    # package = pkgs.core.mcpo;
+    enable = true;
+    package = pkgs.core.mcpo;
     settings = {
       mcpServers = {
         nixos = {
