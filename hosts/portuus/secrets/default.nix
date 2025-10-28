@@ -9,6 +9,7 @@
   sops.secrets."mailserver/accounts/steffen" = { };
   sops.secrets."mailserver/accounts/jfk" = { };
   sops.secrets."mailserver/accounts/lissy" = { };
+  sops.secrets."mailserver/accounts/ulm" = { };
 
   sops.secrets."github-runners/nix-core" = { };
 
