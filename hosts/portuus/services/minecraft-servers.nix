@@ -16,7 +16,7 @@ in
       survival = {
         enable = true;
         package = pkgs.fabricServers.fabric-1_21_1;
-
+        jvmOpts = "-Xms4G -Xmx16G -XX:+UseG1GC";
         serverProperties = {
           gamemode = "survival";
           difficulty = "hard";
@@ -33,18 +33,31 @@ in
           Sutaneko = "6c7e30b0-48ff-492a-8224-b6aa09346e7a";
           Xerion42 = "7f7112c3-4089-4510-a94f-78955aa1c205";
         };
-
-        jvmOpts = "-Xms16G -Xmx16G -XX:+UseG1GC";
-
       };
+
       creative = {
         enable = false;
         package = pkgs.vanillaServers.vanilla-1_21;
-
         serverProperties = {
           gamemode = "creative";
           level-seed = cfg.servers.survival.serverProperties.level-seed;
           server-port = 25566;
+        };
+      };
+
+      survival2 = {
+        enable = true;
+        package = pkgs.vanillaServers.vanilla-1_21_10;
+        jvmOpts = "-Xms3G -Xmx12G -XX:+UseG1GC";
+        serverProperties = {
+          gamemode = "survival";
+          difficulty = "hard";
+          simulation-distance = "12";
+          server-port = 25566;
+        };
+        whitelist = {
+          Aaronimore97 = "77848340-8780-448a-a843-89c1ceac02c2";
+          Sharpac96 = "0bd560b6-24f7-43cf-a716-97be448cadbc";
         };
       };
     };
