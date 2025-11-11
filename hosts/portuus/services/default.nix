@@ -5,6 +5,7 @@
     ./gitea.nix
     ./github-runners.nix
     ./grafana.nix
+    ./headscale.nix
     ./hydra.nix
     ./immich.nix
     ./jellyfin.nix
