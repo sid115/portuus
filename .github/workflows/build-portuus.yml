@@ -1,4 +1,4 @@
-name: dry-activate
+name: build portuus
 
 on:
   pull_request:
@@ -17,4 +17,4 @@ jobs:
       - uses: cachix/install-nix-action@v31
         with:
           nix_path: nixpkgs=channel:nixos-unstable
-      - run: nixos-rebuild dry-activate --flake .#portuus --impure
+      - run: nix build .#nixosConfigurations.portuus.config.system.build.toplevel --impure
