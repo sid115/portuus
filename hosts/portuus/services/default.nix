@@ -30,6 +30,5 @@
     # ./ig.nix # FIXME
     # ./spliit.nix # FIXME
     # ./jitsi-meet.nix
-    # ./nuschtos-search.nix
   ];
 }
