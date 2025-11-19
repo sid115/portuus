@@ -1,10 +1,11 @@
 { config, ... }:
 
 # TODO: turn into nixos module for nix-core
+# FIXME: implement an authentication mechanism
 let
   extraArgs = [
     "--key"
-    "$(cat ${config.sops.secrets."rustdesk-server/key".path})"
+    "_"
   ];
 in
 {
