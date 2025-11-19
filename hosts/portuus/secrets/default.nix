@@ -13,12 +13,6 @@
 
   sops.secrets."github-runners/portuus" = { };
 
-  sops.secrets."rustdesk-server/key" = {
-    owner = "rustdesk";
-    group = "rustdesk";
-    mode = "0440";
-  };
-
   sops.secrets."rss-bridge/ig/session_id" = {
     owner = config.services.rss-bridge.user;
     group = config.services.rss-bridge.group;
