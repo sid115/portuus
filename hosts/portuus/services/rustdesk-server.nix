@@ -4,7 +4,7 @@
 let
   extraArgs = [
     "--key"
-    "\"$(cat ${config.sops.secrets."rustdesk-server/key".path})\""
+    "$(cat ${config.sops.secrets."rustdesk-server/key".path})"
   ];
 in
 {
