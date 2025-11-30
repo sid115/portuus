@@ -5,7 +5,7 @@
 
   services.open-webui-oci = {
     enable = true;
-    port = 8081;
+    port = 8083;
     reverseProxy = {
       enable = true;
       subdomain = "oi";
