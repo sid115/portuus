@@ -9,5 +9,8 @@
       enable = true;
       subdomain = "miniflux";
     };
+    config = {
+      ADMIN_USERNAME = "sid";
+    };
   };
 }
