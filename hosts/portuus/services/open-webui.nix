@@ -13,7 +13,7 @@
 
   services.open-webui = {
     enable = true;
-    package = pkgs.core.open-webui;
+    package = pkgs.old-stable.open-webui;
   };
 
   services.ollama = {

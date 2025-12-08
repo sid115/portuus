@@ -1,10 +1,8 @@
 {
   imports = [
-    ./cockpit.nix
     ./firefly-iii.nix
     ./gitea.nix
     ./github-runners.nix
-    ./grafana.nix
     ./hydra.nix
     ./immich.nix
     ./jellyfin.nix

@@ -1,8 +1,8 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.05";
-    nixpkgs-old-stable.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.11";
+    nixpkgs-old-stable.url = "github:nixos/nixpkgs/nixos-25.05";
 
     core.url = "github:sid115/nix-core";
     core.inputs.nixpkgs.follows = "nixpkgs";
