@@ -5,7 +5,10 @@
 
   services.peertube = {
     enable = true;
-    subdomain = "videos";
+    reverseProxy = {
+      enable = true;
+      subdomain = "videos";
+    };
     dataDirs = [ "/data/peertube" ];
   };
 }

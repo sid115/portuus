@@ -9,7 +9,10 @@ in
   services.nextcloud = {
     enable = true;
     datadir = "/data/nextcloud";
-    subdomain = "cloud";
+    reverseProxy = {
+      enable = true;
+      subdomain = "cloud";
+    };
     extraApps = {
       inherit (config.services.nextcloud.package.packages.apps)
         bookmarks

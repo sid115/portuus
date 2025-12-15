@@ -10,8 +10,7 @@
     ./hardware.nix
     ./networking.nix
     ./packages.nix
-    ./programs.nix
-    ./secrets
+    # ./secrets
     ./services
     ./users.nix
 
@@ -20,5 +19,5 @@
     outputs.nixosModules.common
   ];
 
-  system.stateVersion = "24.11";
+  system.stateVersion = "25.11";
 }
