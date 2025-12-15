@@ -1,0 +1,7 @@
+{
+  "buildHost": "portuus",
+  "hosts": [
+    "edge",
+    "portuus"
+  ]
+}
