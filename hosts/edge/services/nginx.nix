@@ -10,11 +10,6 @@ let
       portuus = "100.64.0.x";
     in
     [
-      {
-        fqdn = "ai." + domain;
-        host = portuus;
-        port = "8083";
-      }
     ];
 
   mkVHost = host: port: {
@@ -35,9 +30,7 @@ let
     );
 in
 {
-  imports = [
-    inputs.core.nixosModules.nginx
-  ];
+  imports = [ inputs.core.nixosModules.nginx ];
 
   services.nginx = {
     enable = true;
