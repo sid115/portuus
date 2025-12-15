@@ -8,7 +8,7 @@
     port = 8083;
     reverseProxy = {
       enable = true;
-      subdomain = "oi";
+      subdomain = "ai";
     };
     environment = {
       AUDIO_STT_ENGINE = "openai";

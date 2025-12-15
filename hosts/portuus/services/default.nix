@@ -15,7 +15,6 @@
     ./nginx.nix
     ./nix-serve.nix
     ./open-webui-oci.nix
-    ./open-webui.nix
     ./openssh.nix
     ./peertube.nix
     ./radicale.nix
