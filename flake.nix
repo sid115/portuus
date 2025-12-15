@@ -4,7 +4,7 @@
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.11";
     nixpkgs-old-stable.url = "github:nixos/nixpkgs/nixos-25.05";
 
-    core.url = "github:sid115/nix-core";
+    core.url = "github:sid115/nix-core/develop";
     core.inputs.nixpkgs.follows = "nixpkgs";
 
     git-hooks.url = "github:cachix/git-hooks.nix";
@@ -12,7 +12,7 @@
 
     nixos-mailserver.url = "gitlab:simple-nixos-mailserver/nixos-mailserver";
     nixos-mailserver.inputs.nixpkgs.follows = "nixpkgs";
-    
+
     headplane.url = "github:tale/headplane";
     headplane.inputs.nixpkgs.follows = "nixpkgs";
 
