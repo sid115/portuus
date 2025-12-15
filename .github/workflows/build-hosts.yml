@@ -1,4 +1,4 @@
-name: build portuus
+name: Build Hosts
 
 on:
   pull_request:
@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  flake-check:
+  build-hosts:
     runs-on: self-hosted
 
     env:
@@ -17,4 +17,6 @@ jobs:
       - uses: cachix/install-nix-action@v31
         with:
           nix_path: nixpkgs=channel:nixos-unstable
-      - run: nix build .#nixosConfigurations.portuus.config.system.build.toplevel --impure
+      - run: |
+          nix build .#nixosConfigurations.portuus.config.system.build.toplevel --impure
+          nix build .#nixosConfigurations.edge.config.system.build.toplevel --impure
