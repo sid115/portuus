@@ -1,7 +1,7 @@
-{ inputs, config, ... }:
+{ outputs, config, ... }:
 
 {
-  imports = [ inputs.core.nixosModules.open-webui-oci ];
+  imports = [ outputs.nixosModules.open-webui-oci ];
 
   services.open-webui-oci = {
     enable = true;
