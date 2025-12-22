@@ -7,6 +7,9 @@
     core.url = "github:sid115/nix-core";
     core.inputs.nixpkgs.follows = "nixpkgs";
 
+    deploy-rs.url = "github:serokell/deploy-rs";
+    deploy-rs.inputs.nixpkgs.follows = "nixpkgs";
+
     git-hooks.url = "github:cachix/git-hooks.nix";
     git-hooks.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -79,6 +82,18 @@
         };
       };
 
+      deploy = {
+        nodes = {
+          portuus = {
+            hostname = "portuus";
+            profiles.system = {
+              user = "root";
+              path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.portuus;
+            };
+          };
+        };
+      };
+
       formatter = forAllSystems (
         system:
         let
@@ -101,8 +116,10 @@
             inherit system;
             overlays = [ self.overlays.modifications ];
           };
+          deployChecks = inputs.deploy-rs.lib.${system}.deployChecks self.deploy;
         in
-        {
+        deployChecks
+        // {
           pre-commit-check = inputs.git-hooks.lib.${system}.run {
             src = ./.;
             hooks = {
