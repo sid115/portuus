@@ -10,6 +10,7 @@
       enable = true;
       subdomain = "ai";
     };
+    environmentFile = config.sops.templates."open-webui-oci/environment".path;
     environment = {
       AUDIO_STT_ENGINE = "openai";
       AUDIO_TTS_ENGINE = "openai";
