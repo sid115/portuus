@@ -82,23 +82,17 @@
         };
       };
 
-      deploy =
-        let
-          mkNode = name: {
-            hostname = name;
+      deploy = {
+        nodes = {
+          portuus = {
+            hostname = "portuus";
             profiles.system = {
               user = "root";
-              path =
-                inputs.deploy-rs.lib.${self.nixosConfigurations.${name}.system}.activate.nixos
-                  self.nixosConfigurations.${name};
+              path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.portuus;
             };
           };
-        in
-        {
-          nodes = {
-            portuus = mkNode "portuus";
-          };
         };
+      };
 
       formatter = forAllSystems (
         system:
