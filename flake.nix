@@ -13,6 +13,9 @@
     nixos-mailserver.url = "gitlab:simple-nixos-mailserver/nixos-mailserver";
     nixos-mailserver.inputs.nixpkgs.follows = "nixpkgs";
 
+    headplane.url = "github:tale/headplane";
+    headplane.inputs.nixpkgs.follows = "nixpkgs";
+
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
     nix-minecraft.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -45,25 +48,6 @@
       forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
     in
     {
-      apps = forAllSystems (
-        system:
-        let
-          pkgs = nixpkgs.legacyPackages.${system};
-        in
-        {
-          default = self.apps.${system}.rebuild;
-          rebuild = {
-            type = "app";
-            program =
-              let
-                pkg = pkgs.callPackage ./apps/rebuild { };
-              in
-              "${pkg}/bin/rebuild";
-            meta.description = "Rebuild NixOS configuration for portuus.";
-          };
-        }
-      );
-
       packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
 
       overlays = import ./overlays { inherit inputs; };
@@ -71,7 +55,15 @@
       nixosModules = import ./modules/nixos;
 
       nixosConfigurations = {
+        edge = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = {
+            inherit inputs outputs;
+          };
+          modules = [ ./hosts/edge ];
+        };
         portuus = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
           specialArgs = {
             inherit inputs outputs;
           };

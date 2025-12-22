@@ -1,4 +1,9 @@
 {
+  outputs,
+  ...
+}:
+
+{
   imports = [
     ./firefly-iii.nix
     ./gitea.nix
@@ -24,6 +29,8 @@
     ./vaultwarden.nix
     ./vde.nix
     ./zfs.nix
+
+    # outputs.nixosModules.tailscale
 
     # ./ig.nix # FIXME
     # ./spliit.nix # FIXME
