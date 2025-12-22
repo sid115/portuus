@@ -16,11 +16,6 @@ in
     portuus = {
       enable = true;
       url = "https://github.com/sid115/portuus";
-      inherit tokenFile;
-    };
-    tailnet-deploy = {
-      enable = true;
-      url = "https://github.com/sid115/portuus";
       user = tailnet-deploy-user;
       group = tailnet-deploy-user;
       inherit tokenFile;
