@@ -85,7 +85,15 @@
       deploy = {
         nodes = {
           portuus = {
-            hostname = "portuus";
+            hostname = "portuus.de";
+            sshUser = "root";
+            sshOpts = [
+              "-p"
+              "2299"
+            ];
+            user = "root";
+            autoRollback = true;
+            magicRollback = true;
             profiles.system = {
               user = "root";
               path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.portuus;

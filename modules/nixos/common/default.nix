@@ -1,3 +1,5 @@
+{ lib, ... }:
+
 {
   imports = [
     ./overlays.nix
@@ -8,4 +10,6 @@
   ];
 
   nix.settings.trusted-users = [ "root" ];
+
+  services.openssh.settings.PermitRootLogin = lib.mkForce "yes";
 }
