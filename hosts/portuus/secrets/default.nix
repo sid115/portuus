@@ -11,8 +11,6 @@
   sops.secrets."mailserver/accounts/lissy" = { };
   sops.secrets."mailserver/accounts/ulm" = { };
 
-  sops.secrets."github-runners/portuus" = { };
-
   sops.secrets."rss-bridge/ig/session_id" = {
     owner = config.services.rss-bridge.user;
     group = config.services.rss-bridge.group;

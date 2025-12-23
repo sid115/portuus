@@ -1,4 +1,4 @@
-name: build portuus
+name: Build Portuus
 
 on:
   pull_request:

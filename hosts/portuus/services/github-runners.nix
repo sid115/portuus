@@ -1,23 +1,18 @@
 { config, pkgs, ... }:
 
 let
-  cfg = config.services.github-runners;
-  tokenFile = config.sops.secrets."github-runners/portuus".path;
-
-  tailnet-deploy-user = "runner-tailnet-deploy";
+  tokenFile = config.sops.secrets."github-runners/portuus/token".path;
+  deployKeyFile = config.sops.secrets."github-runners/portuus/deploy-key".path;
+  user = "github-runner-portuus";
+  home = "/var/lib/github-runner/portuus";
 in
 {
   services.github-runners = {
-    nix-core = {
-      enable = true;
-      url = "https://github.com/sid115/nix-core";
-      inherit tokenFile;
-    };
     portuus = {
       enable = true;
       url = "https://github.com/sid115/portuus";
-      user = tailnet-deploy-user;
-      group = tailnet-deploy-user;
+      user = user;
+      group = user;
       inherit tokenFile;
 
       extraPackages = with pkgs; [
@@ -27,24 +22,35 @@ in
         openssh
       ];
 
-      serviceOverrides = {
-        BindReadOnlyPaths = [
-          "${config.sops.secrets."github-runners/tailnet-deploy/deploy-key".path}:/root/.ssh/id_ed25519"
-        ];
+      extraEnvironment = {
+        DEPLOY_KEY_PATH = deployKeyFile;
       };
     };
   };
 
-  nix.settings.trusted-users = [ tailnet-deploy-user ];
+  users.groups.${user} = { };
+
+  users.users.${user} = {
+    isSystemUser = true;
+    group = user;
+    description = "Github Runner for Portuus";
+    home = home;
+    createHome = true;
+  };
+
+  nix.settings.trusted-users = [ user ];
 
   sops =
     let
-      owner = tailnet-deploy-user;
-      group = tailnet-deploy-user;
+      owner = user;
+      group = user;
       mode = "0600";
     in
     {
-      secrets."github-runners/tailnet-deploy/deploy-key" = {
+      secrets."github-runners/portuus/token" = {
+        inherit owner group mode;
+      };
+      secrets."github-runners/portuus/deploy-key" = {
         inherit owner group mode;
       };
     };
