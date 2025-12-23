@@ -90,6 +90,10 @@
             sshOpts = [
               "-p"
               "2299"
+              "-o"
+              "StrictHostKeyChecking=no"
+              "-o"
+              "UserKnownHostsFile=/dev/null"
             ];
             user = "root";
             autoRollback = true;
