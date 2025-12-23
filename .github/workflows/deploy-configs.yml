@@ -22,4 +22,4 @@ jobs:
           echo "  IdentityFile $DEPLOY_KEY_PATH" >> ~/.ssh/config
           chmod 600 ~/.ssh/config
 
-      - run: deploy . --skip-checks --auto-rollback
+      - run: deploy .
