@@ -1,18 +1,13 @@
 { config, pkgs, ... }:
 
 let
-  cfg = config.services.github-runners;
-  tokenFile = config.sops.secrets."github-runners/portuus".path;
+  tokenFile = config.sops.secrets."github-runners/portuus/token".path;
+  deployKeyFile = config.sops.secrets."github-runners/portuus/deploy-key".path;
   user = "github-runner-portuus";
   home = "/var/lib/github-runner/portuus";
 in
 {
   services.github-runners = {
-    nix-core = {
-      enable = true;
-      url = "https://github.com/sid115/nix-core";
-      inherit tokenFile;
-    };
     portuus = {
       enable = true;
       url = "https://github.com/sid115/portuus";
@@ -29,7 +24,7 @@ in
 
       serviceOverrides = {
         BindReadOnlyPaths = [
-          "${config.sops.secrets."github-runners/tailnet-deploy/deploy-key".path}:${home}/.ssh/id_ed25519"
+          "${deployKeyFile}:${home}/.ssh/id_ed25519"
         ];
       };
     };
@@ -54,7 +49,10 @@ in
       mode = "0600";
     in
     {
-      secrets."github-runners/tailnet-deploy/deploy-key" = {
+      secrets."github-runners/portuus/token" = {
+        inherit owner group mode;
+      };
+      secrets."github-runners/portuus/deploy-key" = {
         inherit owner group mode;
       };
     };
