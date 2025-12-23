@@ -19,6 +19,7 @@ jobs:
           echo "Host *" > ~/.ssh/config
           echo "  StrictHostKeyChecking no" >> ~/.ssh/config
           echo "  UserKnownHostsFile=/dev/null" >> ~/.ssh/config
+          echo "  IdentityFile $DEPLOY_KEY_PATH" >> ~/.ssh/config
           chmod 600 ~/.ssh/config
 
       - run: deploy . --skip-checks --auto-rollback

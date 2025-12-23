@@ -22,10 +22,8 @@ in
         openssh
       ];
 
-      serviceOverrides = {
-        BindReadOnlyPaths = [
-          "${deployKeyFile}:${home}/.ssh/id_ed25519"
-        ];
+      extraEnvironment = {
+        DEPLOY_KEY_PATH = deployKeyFile;
       };
     };
   };
