@@ -6,7 +6,10 @@
   services.rss-bridge = {
     enable = true;
     dataDir = "/data/rss-bridge";
-    subdomain = "rss-bridge";
+    reverseProxy = {
+      enable = true;
+      subdomain = "rss-bridge";
+    };
   };
 
   # FIXME: bridge is broken

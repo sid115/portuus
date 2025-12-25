@@ -22,11 +22,11 @@
     ./rustdesk-server.nix
     ./searx.nix
     ./vaultwarden.nix
-    ./vde.nix
     ./zfs.nix
 
     # ./ig.nix # FIXME
-    # ./spliit.nix # FIXME
     # ./jitsi-meet.nix
+    # ./spliit.nix # FIXME
+    # ./vde.nix
   ];
 }

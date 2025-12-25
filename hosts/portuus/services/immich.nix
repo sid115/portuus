@@ -1,15 +1,22 @@
 { inputs, ... }:
 
+let
+  subdomain = "gallery";
+in
 {
   imports = [ inputs.core.nixosModules.immich ];
 
   services.immich = {
     enable = true;
+    reverseProxy = {
+      enable = true;
+      inherit subdomain;
+    };
     mediaLocation = "/data/immich";
     accelerationDevices = null; # all devices
   };
 
-  services.nginx.virtualHosts."gallery.portuus.de" = {
+  services.nginx.virtualHosts."${subdomain}.portuus.de" = {
     extraConfig = ''
       client_max_body_size 5G;
     '';

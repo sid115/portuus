@@ -6,6 +6,9 @@
   services.jirafeau = {
     enable = true;
     dataDir = "/data/jirafeau";
-    subdomain = "share";
+    reverseProxy = {
+      enable = true;
+      subdomain = "share";
+    };
   };
 }
