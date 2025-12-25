@@ -1,4 +1,9 @@
-{ inputs, config, ... }:
+{
+  inputs,
+  config,
+  pkgs,
+  ...
+}:
 
 let
   domain = config.networking.domain;
@@ -8,6 +13,7 @@ in
 
   services.nextcloud = {
     enable = true;
+    package = pkgs.nextcloud32;
     datadir = "/data/nextcloud";
     reverseProxy = {
       enable = true;

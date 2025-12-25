@@ -1,10 +1,9 @@
 {
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     nixpkgs-old-stable.url = "github:nixos/nixpkgs/nixos-25.05";
 
-    core.url = "github:sid115/nix-core";
+    core.url = "github:sid115/nix-core/release-25.11";
     core.inputs.nixpkgs.follows = "nixpkgs";
 
     deploy-rs.url = "github:serokell/deploy-rs";
@@ -13,7 +12,7 @@
     git-hooks.url = "github:cachix/git-hooks.nix";
     git-hooks.inputs.nixpkgs.follows = "nixpkgs";
 
-    nixos-mailserver.url = "gitlab:simple-nixos-mailserver/nixos-mailserver";
+    nixos-mailserver.url = "gitlab:simple-nixos-mailserver/nixos-mailserver/nixos-25.11";
     nixos-mailserver.inputs.nixpkgs.follows = "nixpkgs";
 
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";

@@ -15,10 +15,4 @@ in
     mediaLocation = "/data/immich";
     accelerationDevices = null; # all devices
   };
-
-  services.nginx.virtualHosts."${subdomain}.portuus.de" = {
-    extraConfig = ''
-      client_max_body_size 5G;
-    '';
-  };
 }
