@@ -5,6 +5,10 @@
 
   services.radicale = {
     enable = true;
+    reverseProxy = {
+      enable = true;
+      subdomain = "dav";
+    };
     users = [
       "sid"
       "susagi"

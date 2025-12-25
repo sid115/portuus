@@ -5,6 +5,10 @@
 
   services.gitea = {
     enable = true;
+    reverseProxy = {
+      enable = true;
+      subdomain = "git";
+    };
     stateDir = "/data/gitea";
   };
 }

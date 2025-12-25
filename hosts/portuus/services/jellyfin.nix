@@ -7,7 +7,10 @@
     enable = true;
     dataDir = "/data/jellyfin";
     cacheDir = "${config.services.jellyfin.dataDir}/cache";
-    subdomain = "media";
+    reverseProxy = {
+      enable = true;
+      subdomain = "media";
+    };
     libraries = [
       "books/audiobooks"
       "movies"

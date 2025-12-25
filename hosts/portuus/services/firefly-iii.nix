@@ -5,7 +5,11 @@
 
   services.firefly-iii = {
     enable = true;
-    subdomain = "finance";
+    reverseProxy = {
+      enable = true;
+      subdomain = "finance";
+      importerSubdomain = "import.finance";
+    };
     dataDir = "/data/firefly-iii";
   };
 }
