@@ -41,10 +41,14 @@
     }@inputs:
     let
       inherit (self) outputs;
+
       supportedSystems = [
         "x86_64-linux"
       ];
+
       forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
+
+      overlays = [ inputs.core.overlays.default ];
     in
     {
       apps = forAllSystems (
@@ -73,12 +77,21 @@
       nixosModules = import ./modules/nixos;
 
       nixosConfigurations = {
-        portuus = nixpkgs.lib.nixosSystem {
-          specialArgs = {
-            inherit inputs outputs;
+        portuus =
+          let
+            system = "x86_64-linux";
+            lib =
+              (import nixpkgs {
+                inherit system overlays;
+              }).lib;
+          in
+          nixpkgs.lib.nixosSystem {
+            inherit system;
+            specialArgs = {
+              inherit inputs outputs lib;
+            };
+            modules = [ ./hosts/portuus ];
           };
-          modules = [ ./hosts/portuus ];
-        };
       };
 
       deploy = {
